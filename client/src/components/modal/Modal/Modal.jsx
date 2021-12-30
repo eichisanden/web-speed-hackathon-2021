@@ -34,7 +34,7 @@ const Modal = ({ children, onRequestCloseModal }) => {
       }
     };
     document.addEventListener('keyup', handler);
-    return () => document.removeEventListener('keyup', handler);
+    return () => document.removeEventListener('keyup', handler, { passive: true });
   }, [onRequestCloseModal]);
 
   return ReactDOM.createPortal(
