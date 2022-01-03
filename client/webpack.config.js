@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const SRC_PATH = path.resolve(__dirname, './src');
 const PUBLIC_PATH = path.resolve(__dirname, '../public');
@@ -45,6 +46,10 @@ const config = {
         ],
       },
     ],
+  },
+  optimization: {
+    minimize: true,
+    minimizer: ['...', new CssMinimizerPlugin()],
   },
   output: {
     filename: 'scripts/[name].js',
