@@ -1,7 +1,7 @@
 import React from 'react';
 
 const mean = (arr) => arr.reduce((acc, num) => acc + num, 0) / arr.length;
-const zip = (arr, ...args) => arr.map((value, idx) => [value, ...args.map((arr) => arr[idx])]);
+const zip = (arr, ...args) => Array.from(arr).map((value, idx) => [value, ...args.map((arr) => arr[idx])]);
 const chunk = (arr, chunkSize = 1, cache = []) => {
   const tmp = [...arr];
   if (chunkSize <= 0) return cache;
